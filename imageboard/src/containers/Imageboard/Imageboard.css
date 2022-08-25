@@ -1,0 +1,69 @@
+.cardItems{
+    background: #7e7e96;
+    border-radius: 5px;
+    margin: 12px 8px;
+    padding: 6px 23px;
+    color: white;
+    border: 1px solid #1c1a1a;
+}
+
+form{
+    margin-left: 10px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+}
+
+.btnPost{
+    border: 2px solid #a6e397;
+    background: none;
+    border-radius: 5px;
+    color: #a6e397;
+    font-size: 12px;
+    padding: 10px 12px;
+    text-transform: uppercase;
+    min-width: 148px;
+    margin-top: 10px;
+    margin-left: 5px;
+}
+
+.btnPost:hover{
+    background: #9ad7ab;
+    color: black;
+    box-shadow: 3px 5px 5px #4e4e4e;
+}
+
+.messageItem:focus,
+.authorItem:focus{
+    background: linear-gradient(90deg, #cfecd0, #a0cea7, #9ec0db);
+    color: black;
+    box-shadow: 3px 5px 5px #4e4e4e;
+}
+
+.messageItem ,.authorItem  {
+    height: 28px;
+    width: 60%;
+    margin-top: 10px;
+    border-radius: 5px;
+    border: #9ad7ab 2px solid;
+    background: none;
+    color: white;
+}
+
+.messageItem::placeholder,
+.authorItem::placeholder{
+    color: white;
+    padding-left: 10px;
+}
+
+.userInfo{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.author{
+    color: #035703;
+}
+
