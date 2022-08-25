@@ -32,7 +32,7 @@ const Reducer = (state = initialState, action) => {
         case POST_MESSAGES_REQUEST:
             return {...state, loading: true, error: null};
         case POST_MESSAGES_SUCCESS:
-            return {loading: false, error: null,messages: state.messages[action.payload], author: state.author[action.payload], image: state.image[action.payload]};
+            return {loading: false, error: null};
         case POST_MESSAGES_FAILURE:
             return {...state, loading: false, error: action.payload};
         default :

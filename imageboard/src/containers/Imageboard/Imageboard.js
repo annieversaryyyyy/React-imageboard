@@ -2,9 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {useDispatch, useSelector} from "react-redux";
 import {getMessages, postMessages} from "../../store/actions/MessageActions";
 import './Imageboard.css';
-import imageNotAvailable from '../../assets/image-not-available.jpg';
 import Spinner from "../../components/UI/Spinner/Spinner";
-import baseApi from "../../baseApi";
 
 const Imageboard = ({onSubmit}) => {
     const  dispatch = useDispatch();
@@ -13,7 +11,6 @@ const Imageboard = ({onSubmit}) => {
         message: '',
         image: ''
     });
-    let cardImage = imageNotAvailable;
 
     const messages = useSelector(state => state.messages.messages);
     const loading = useSelector(state => state.messages.loading);
@@ -51,6 +48,7 @@ const Imageboard = ({onSubmit}) => {
 
     return messages && (
         <>
+            {loading ? <Spinner/> :
                 <div className='cards' >
                     {messages.map((res, i) => (
                         <div className='cardItems' key={i}>
@@ -66,18 +64,11 @@ const Imageboard = ({onSubmit}) => {
                                          src={res.image !== null ? 'http://localhost:8000/uploads/' + res.image
                                              : null} alt={res.image}/>
                                     : null}
-
-                                {/*<img width='100px'*/}
-                                {/*     src={*/}
-                                {/*         res.image !== null ? 'http://localhost:8000/uploads/' + res.image*/}
-                                {/*             : cardImage}*/}
-                                {/*     alt={res.image}*/}
-                                {/*/>*/}
                             </div>
                         </div>
                     ))}
                 </div>
-
+            }
             <form  onSubmit={makeNewItem} >
                 <input
                     placeholder='Message'
